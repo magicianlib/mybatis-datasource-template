@@ -11,4 +11,4 @@ CREATE TABLE `user`
 INSERT INTO `user` (`id`, `name`, `age`, `gender`) VALUES (1, 'Hanmeimei', 19, 0);
 
 --- slave
-INSERT INTO `user` (`id`, `name`, `age`, `gender`) VALUES (1, 'LiLei', 18, 0);
+INSERT INTO `user` (`id`, `name`, `age`, `gender`) VALUES (1, 'LiLei', 18, 1);

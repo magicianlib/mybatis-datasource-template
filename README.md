@@ -8,5 +8,5 @@ $ curl -XGET "localhost:8080/master"
 [{"id":1,"name":"Hanmeimei","age":19,"gender":0}]
 
 $ curl -XGET "localhost:8080/slave"
-[{"id":1,"name":"LiLei","age":18,"gender":0}]
+[{"id":1,"name":"LiLei","age":18,"gender":1}]
 ```

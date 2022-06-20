@@ -28,9 +28,7 @@ public class DynamicDataSourceAspect {
 
             MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
 
-            Class<?> targetClazz = joinPoint.getTarget().getClass();
-
-            Method declaredMethod = targetClazz.getDeclaredMethod(methodSignature.getName(), methodSignature.getParameterTypes());
+            Method method = methodSignature.getMethod();
 
             DataSource dataSource = AnnotationUtils.getAnnotation(declaredMethod, DataSource.class);
 

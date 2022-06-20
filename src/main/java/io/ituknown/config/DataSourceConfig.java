@@ -34,7 +34,7 @@ public class DataSourceConfig {
         targetDataSources.put(DataSourceType.MASTER, masterDataSource());
         targetDataSources.put(DataSourceType.SLAVE, slaveDataSource());
 
-        DynamicDataSourceRouting dataSourceRouting = new DynamicDataSourceRouting();
+        DynamicRoutingDataSource dataSourceRouting = new DynamicRoutingDataSource();
         dataSourceRouting.setDefaultTargetDataSource(masterDataSource());
         dataSourceRouting.setTargetDataSources(targetDataSources);
 

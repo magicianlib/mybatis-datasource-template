@@ -18,15 +18,15 @@ public class DataSourceContextHolder {
         return CONTEXT_HOLDER.get();
     }
 
-    public static void clear() {
-        CONTEXT_HOLDER.remove();
-    }
-
     public static void useMaster() {
         set(DataSourceType.MASTER);
     }
 
     public static void useSlave() {
         set(DataSourceType.SLAVE);
+    }
+
+    public static void clear() {
+        CONTEXT_HOLDER.remove();
     }
 }

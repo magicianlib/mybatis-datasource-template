@@ -25,7 +25,7 @@ public class DataSourceConfig {
     private DataSourceProperties.SlaveDataSourceProperties slaveDataSourceProperties;
 
     /**
-     * 动态路由
+     * 动态数据源
      */
     @Bean
     public DataSource dynamicDataSource() {
@@ -34,11 +34,11 @@ public class DataSourceConfig {
         targetDataSources.put(DataSourceType.MASTER, masterDataSource());
         targetDataSources.put(DataSourceType.SLAVE, slaveDataSource());
 
-        DynamicRoutingDataSource dataSourceRouting = new DynamicRoutingDataSource();
-        dataSourceRouting.setDefaultTargetDataSource(masterDataSource());
-        dataSourceRouting.setTargetDataSources(targetDataSources);
+        DynamicRoutingDataSource dynamicDataSource = new DynamicRoutingDataSource();
+        dynamicDataSource.setDefaultTargetDataSource(masterDataSource());
+        dynamicDataSource.setTargetDataSources(targetDataSources);
 
-        return dataSourceRouting;
+        return dynamicDataSource;
     }
 
     @Bean

@@ -7,6 +7,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ import java.lang.reflect.Method;
  */
 @Aspect
 @Component
-public class DynamicDataSourceAspect {
+public class DynamicDataSourceAspect implements Ordered {
 
     @Around("execution(* io.ituknown.service.*Service.*(..))")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -30,7 +31,7 @@ public class DynamicDataSourceAspect {
 
             Method method = methodSignature.getMethod();
 
-            DataSource dataSource = AnnotationUtils.getAnnotation(declaredMethod, DataSource.class);
+            DataSource dataSource = AnnotationUtils.getAnnotation(method, DataSource.class);
 
             // default use master databases
             if (dataSource == null || DataSourceType.MASTER == dataSource.type()) {
@@ -43,5 +44,10 @@ public class DynamicDataSourceAspect {
         } finally {
             DataSourceContextHolder.clear();
         }
+    }
+
+    @Override
+    public int getOrder() {
+        return Ordered.LOWEST_PRECEDENCE - 1;
     }
 }

@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>multi-datasource</module>
-        <module>dynamic-datasource</module>
+        <module>multi-datasource-template</module>
+        <module>dynamic-datasource-template</module>
     </modules>
 
     <properties>

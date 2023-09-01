@@ -10,7 +10,9 @@ CREATE TABLE `dynamic`.`user`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --- src1
-INSERT INTO `dynamic`.`user` (`id`, `name`, `age`, `gender`) VALUES (1, 'src1', 19, 0);
+INSERT INTO `dynamic`.`user` (`id`, `name`, `age`, `gender`)
+VALUES (1, 'src1', 19, 0);
 
 --- src2
-INSERT INTO `dynamic`.`user` (`id`, `name`, `age`, `gender`) VALUES (1, 'src2', 18, 1);
+INSERT INTO `dynamic`.`user` (`id`, `name`, `age`, `gender`)
+VALUES (1, 'src2', 18, 1);

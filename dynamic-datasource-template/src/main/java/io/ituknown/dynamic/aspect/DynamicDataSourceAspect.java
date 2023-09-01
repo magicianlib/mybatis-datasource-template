@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
  * 动态数据源 AOP
  *
  * @author Shilin <br > mingrn97@gmail.com
- * @date 2022/06/16 15:25
+ * @since 2023/09/01 21:54
  */
 @Aspect
 @Component
@@ -27,9 +27,9 @@ public class DynamicDataSourceAspect implements Ordered {
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         try {
 
-            MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 
-            Method method = methodSignature.getMethod();
+            Method method = signature.getMethod();
 
             DataSource dataSource = AnnotationUtils.getAnnotation(method, DataSource.class);
 

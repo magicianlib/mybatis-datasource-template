@@ -1,5 +1,6 @@
 package io.ituknown.multi.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -21,6 +22,18 @@ import javax.sql.DataSource;
         sqlSessionTemplateRef = "src2SqlSessionTemplate"
 )
 public class Src2MyBatisConfig {
+
+    @Bean("src2DataSource")
+    public DataSource src2DataSource(@Qualifier("src2DataSourceProperties") DataSourceProperties.Src2DataSource properties) {
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDbType("mysql");
+
+        dataSource.setUrl(properties.getUrl());
+        dataSource.setUsername(properties.getUsername());
+        dataSource.setPassword(properties.getPassword());
+
+        return dataSource;
+    }
 
     @Bean("src2SqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory(@Qualifier("src2DataSource") DataSource dynamicDataSource) throws Exception {

@@ -1,10 +1,10 @@
 package io.ituknown.dynamic.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,11 +18,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @Configuration
 public class DataSourceConfig {
 
-    @Autowired
-    private DataSourceProperties.MasterDataSourceProperties masterDataSourceProperties;
+    @Resource
+    private DataSourceProperties.MasterDataSource masterDataSourceProperties;
 
-    @Autowired
-    private DataSourceProperties.SlaveDataSourceProperties slaveDataSourceProperties;
+    @Resource
+    private DataSourceProperties.SlaveDataSource slaveDataSourceProperties;
 
     /**
      * 动态数据源

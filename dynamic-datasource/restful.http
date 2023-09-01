@@ -1,0 +1,11 @@
+###
+GET /default
+Host: localhost:10086
+
+###
+GET /master
+Host: localhost:10086
+
+###
+GET /slave
+Host: localhost:10086

@@ -1,0 +1,7 @@
+###
+GET /src1
+Host: localhost:10086
+
+###
+GET /src2
+Host: localhost:10086
